@@ -46,7 +46,13 @@ namespace SimpraHomework.Service.Service
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            var hasStaff = await _repository.GetByIdAsync(id);
+
+            if (hasStaff == null)
+            {
+                throw new NotFoundException($"{typeof(T).Name} not found");
+            }
+            return hasStaff;
         }
 
         public async Task RemoveAsync(T entity)

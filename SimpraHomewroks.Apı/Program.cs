@@ -8,6 +8,7 @@ using SimpraHomework.Repository.Repositories;
 using SimpraHomework.Repository.UnitofWork;
 using SimpraHomework.Service.Mapping;
 using SimpraHomework.Service.Service;
+using SimpraHomewroks.Apý.Middlewares;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -47,6 +48,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCustomException();
 
 app.UseAuthorization();
 
