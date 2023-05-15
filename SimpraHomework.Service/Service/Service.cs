@@ -2,6 +2,7 @@
 using Simpra_Homework_Core.Repositories;
 using Simpra_Homework_Core.Services;
 using Simpra_Homework_Core.UnitofWorks;
+using SimpraHomework.Service.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

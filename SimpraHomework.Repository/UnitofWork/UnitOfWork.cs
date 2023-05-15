@@ -11,11 +11,12 @@ namespace SimpraHomework.Repository.UnitofWork
     public class UnitOfWork : IUnitofWork
     {
         private readonly AppDbContext _context;
+        private bool disposed;
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
         }
- 
+
         public void Commit()
         {
             _context.SaveChanges();
@@ -24,6 +25,24 @@ namespace SimpraHomework.Repository.UnitofWork
         public async Task CommitAsync()
         {
             await _context.SaveChangesAsync();
+        }
+        private async Task CleanAsync(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    await _context.DisposeAsync();
+                }
+            }
+
+            disposed = true;
+            GC.SuppressFinalize(this);
+        }
+
+        public async Task DisposeAsync()
+        {
+            await CleanAsync(true);
         }
 
     }
