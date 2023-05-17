@@ -1,3 +1,4 @@
+
 using Microsoft.EntityFrameworkCore;
 using Simpra_Homework_Core.Repositories;
 using Simpra_Homework_Core.Services;
@@ -9,15 +10,21 @@ using SimpraHomework.Repository.UnitofWork;
 using SimpraHomework.Service.Mapping;
 using SimpraHomework.Service.Service;
 using SimpraHomewroks.Apý.Middlewares;
+using SimpraHomewroks.Apý.Modules;
 using System.Reflection;
+using FluentValidation.AspNetCore;
+using SimpraHomework.Service.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<StaffCreateRequestValidatior>());
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUnitofWork, UnitOfWork>();
@@ -29,6 +36,8 @@ builder.Services.AddAutoMapper(typeof(MapProfile));
 builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 builder.Services.AddScoped<IStaffService, StaffService>();
 
+
+
 builder.Services.AddDbContext<AppDbContext>(
     x =>
 
@@ -37,6 +46,8 @@ builder.Services.AddDbContext<AppDbContext>(
             option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
         }
         ));
+
+
 
 var app = builder.Build();
 
