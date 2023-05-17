@@ -7,6 +7,7 @@ namespace SimpraHomewroks.Apı.Middlewares
 {
     public static class UseCustomExcptionHandler
     {
+        //update
         public static void UseCustomException(this IApplicationBuilder app)
         {
             app.UseExceptionHandler(config =>
