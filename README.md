@@ -16,6 +16,10 @@ SİMPRA_HOMEWORK2
 5.  Fluent  Validation ve AutoMapper kullanıldı.
 6.  CustomResponse ve Middleware kullanıldı.
 7.  SOLID Prensipleri.
-##  Kullanılan Teknolojiler: IDE : Visual Studio 2022 DB: MsSQL Languages: C#, Frameworks: .NET 6, ASP.NetCore, 
-EntityFramework6, EFCore/SqlServer/, DependencyInjection Abstractions 
-Package: 
+##  Kullanılan Teknolojiler: 
+1.  IDE : Visual Studio 2022 
+2.  DB: MsSQL 
+3.  Languages: C#, 
+4.  Frameworks: .NET 6, ASP.NetCore, 
+5.  EntityFramework6, EFCore/SqlServer/, DependencyInjection Abstractions 
+
